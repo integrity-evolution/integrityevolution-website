@@ -217,6 +217,18 @@ const html = `<!DOCTYPE html>
             transition: all 0.3s ease;
         }
 
+        .service-card:nth-child(1) {
+            background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+        }
+
+        .service-card:nth-child(2) {
+            background: linear-gradient(135deg, #EEF2FF 0%, #FFFFFF 100%);
+        }
+
+        .service-card:nth-child(3) {
+            background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+        }
+
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -405,9 +417,9 @@ const html = `<!DOCTYPE html>
     <main class="main-content">
         <section class="hero-section">
             <div class="hero-badge">Transform Your Development Team</div>
-            <h1 class="hero-title">Corporate AI Training for Modern Development</h1>
+            <h1 class="hero-title">Corporate AI Training</h1>
             <p class="hero-subtitle">
-                Empower your engineering team with cutting-edge AI tools. Master Claude, ChatGPT, Gemini, Copilot, and emerging AI platforms to 10x your development velocity.
+                Upskill your team with customized AI development training tailored to your tech stack and goals. All 50 states (or online). Up to 150 people. Well-rounded curriculum with tons of hands-on results.
             </p>
             <div class="hero-cta">
                 <a href="mailto:training@integrityevolution.com" class="primary-button">
@@ -464,10 +476,10 @@ const html = `<!DOCTYPE html>
                         Complete team transformation program with ongoing support and customized workflows for your stack.
                     </p>
                     <ul class="service-features">
-                        <li>Customized curriculum</li>
-                        <li>Tool selection & setup</li>
-                        <li>Process optimization</li>
-                        <li>30-day follow-up support</li>
+                        <li>Custom curriculum design</li>
+                        <li>Hands-on workshops</li>
+                        <li>Code reviews & mentoring</li>
+                        <li>Best practices implementation</li>
                         <li>ROI measurement framework</li>
                     </ul>
                 </div>
