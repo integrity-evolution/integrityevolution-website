@@ -1,0 +1,10 @@
+# Integrity Evolution website configuration
+name = 'integrityevolution'
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = 'integrityevolution-production'
+route = "integrityevolution.com/*"
+# We'll need to add the zone_id after setting up the domain in Cloudflare
+# zone_id = "YOUR_ZONE_ID_HERE"
