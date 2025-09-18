@@ -14,20 +14,141 @@ const html = `<!DOCTYPE html>
     <meta property="og:description" content="Transform your team with AI-assisted coding training">
     <meta property="og:image" content="https://integrityevolution.com/assets/og-image.png">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Google Fonts - Material Design 3 Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
     <style>
+        /* Material Design 3 - Color System */
         :root {
-            --primary-blue: #1E3A8A;
-            --accent-blue: #3B82F6;
-            --light-blue: #DBEAFE;
-            --dark-gray: #1F2937;
-            --medium-gray: #6B7280;
-            --light-gray: #F3F4F6;
-            --white: #FFFFFF;
-            --success-green: #10B981;
+            /* Primary - Dynamic Blue */
+            --md-sys-color-primary: #0061a4;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-primary-container: #d1e4ff;
+            --md-sys-color-on-primary-container: #001d36;
+
+            /* Secondary - Tech Purple */
+            --md-sys-color-secondary: #535e78;
+            --md-sys-color-on-secondary: #ffffff;
+            --md-sys-color-secondary-container: #d7e2ff;
+            --md-sys-color-on-secondary-container: #0f1b32;
+
+            /* Tertiary - Innovation Teal */
+            --md-sys-color-tertiary: #006874;
+            --md-sys-color-on-tertiary: #ffffff;
+            --md-sys-color-tertiary-container: #97f0ff;
+            --md-sys-color-on-tertiary-container: #001f24;
+
+            /* Error */
+            --md-sys-color-error: #ba1a1a;
+            --md-sys-color-on-error: #ffffff;
+            --md-sys-color-error-container: #ffdad6;
+            --md-sys-color-on-error-container: #410002;
+
+            /* Surface & Background */
+            --md-sys-color-surface: #fdfcff;
+            --md-sys-color-on-surface: #1a1c1e;
+            --md-sys-color-surface-variant: #dfe2eb;
+            --md-sys-color-on-surface-variant: #43474e;
+            --md-sys-color-background: #fdfcff;
+            --md-sys-color-on-background: #1a1c1e;
+
+            /* Surface Levels (Elevation) */
+            --md-sys-color-surface-1: #f2f5fb;
+            --md-sys-color-surface-2: #eaeff8;
+            --md-sys-color-surface-3: #e2e9f5;
+            --md-sys-color-surface-4: #e0e7f3;
+            --md-sys-color-surface-5: #dae3f2;
+
+            /* Outline */
+            --md-sys-color-outline: #73777f;
+            --md-sys-color-outline-variant: #c3c7cf;
+
+            /* MD3 Typography Scale */
+            --md-sys-typescale-display-large-size: 57px;
+            --md-sys-typescale-display-large-weight: 400;
+            --md-sys-typescale-display-large-line-height: 64px;
+
+            --md-sys-typescale-display-medium-size: 45px;
+            --md-sys-typescale-display-medium-weight: 400;
+            --md-sys-typescale-display-medium-line-height: 52px;
+
+            --md-sys-typescale-headline-large-size: 32px;
+            --md-sys-typescale-headline-large-weight: 400;
+            --md-sys-typescale-headline-large-line-height: 40px;
+
+            --md-sys-typescale-headline-medium-size: 28px;
+            --md-sys-typescale-headline-medium-weight: 400;
+            --md-sys-typescale-headline-medium-line-height: 36px;
+
+            --md-sys-typescale-title-large-size: 22px;
+            --md-sys-typescale-title-large-weight: 400;
+            --md-sys-typescale-title-large-line-height: 28px;
+
+            --md-sys-typescale-body-large-size: 16px;
+            --md-sys-typescale-body-large-weight: 400;
+            --md-sys-typescale-body-large-line-height: 24px;
+
+            --md-sys-typescale-label-large-size: 14px;
+            --md-sys-typescale-label-large-weight: 500;
+            --md-sys-typescale-label-large-line-height: 20px;
+
+            /* Spacing (8dp grid) */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+
+            /* Border Radius */
+            --md-sys-shape-corner-none: 0px;
+            --md-sys-shape-corner-extra-small: 4px;
+            --md-sys-shape-corner-small: 8px;
+            --md-sys-shape-corner-medium: 12px;
+            --md-sys-shape-corner-large: 16px;
+            --md-sys-shape-corner-extra-large: 28px;
+            --md-sys-shape-corner-full: 999px;
+
+            /* Motion */
+            --md-sys-motion-duration-short1: 50ms;
+            --md-sys-motion-duration-short2: 100ms;
+            --md-sys-motion-duration-short3: 150ms;
+            --md-sys-motion-duration-short4: 200ms;
+            --md-sys-motion-duration-medium1: 250ms;
+            --md-sys-motion-duration-medium2: 300ms;
+            --md-sys-motion-duration-long1: 500ms;
+            --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+            --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        /* Dark Theme */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --md-sys-color-primary: #9ecaff;
+                --md-sys-color-on-primary: #003258;
+                --md-sys-color-primary-container: #00497d;
+                --md-sys-color-on-primary-container: #d1e4ff;
+
+                --md-sys-color-secondary: #bbc6e4;
+                --md-sys-color-on-secondary: #253047;
+                --md-sys-color-secondary-container: #3c475f;
+                --md-sys-color-on-secondary-container: #d7e2ff;
+
+                --md-sys-color-surface: #1a1c1e;
+                --md-sys-color-on-surface: #e2e2e6;
+                --md-sys-color-surface-variant: #43474e;
+                --md-sys-color-on-surface-variant: #c3c7cf;
+                --md-sys-color-background: #1a1c1e;
+                --md-sys-color-on-background: #e2e2e6;
+
+                --md-sys-color-surface-1: #21252a;
+                --md-sys-color-surface-2: #262b31;
+                --md-sys-color-surface-3: #2b3038;
+                --md-sys-color-surface-4: #2d323a;
+                --md-sys-color-surface-5: #30363f;
+            }
         }
 
         * {
@@ -37,297 +158,379 @@ const html = `<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--dark-gray);
-            line-height: 1.6;
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+            background: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+            line-height: 1.5;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            transition: background-color var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-standard);
         }
 
-        .header {
-            background: var(--white);
-            border-bottom: 1px solid var(--light-gray);
-            padding: 1.5rem 2rem;
+        /* MD3 Navigation Rail (Tablet) / Top App Bar (Mobile/Desktop) */
+        .navigation-header {
+            background: var(--md-sys-color-surface);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
         }
 
-        .header-content {
-            max-width: 1200px;
+        .navigation-header.scrolled {
+            background: var(--md-sys-color-surface-2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .navigation-content {
+            max-width: 1240px;
             margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+            font-size: var(--md-sys-typescale-title-large-size);
+            font-weight: 500;
+            color: var(--md-sys-color-primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
         }
 
-        .nav-links {
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+            border-radius: var(--md-sys-shape-corner-medium);
             display: flex;
-            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navigation-items {
+            display: flex;
+            gap: var(--spacing-sm);
             align-items: center;
         }
 
-        .nav-link {
-            color: var(--medium-gray);
+        /* MD3 Navigation Items */
+        .nav-item {
+            color: var(--md-sys-color-on-surface-variant);
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--md-sys-shape-corner-full);
+            font-size: var(--md-sys-typescale-label-large-size);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+            position: relative;
         }
 
-        .nav-link:hover {
-            color: var(--accent-blue);
+        .nav-item:hover {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
         }
 
-        .cta-button {
-            background: var(--accent-blue);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+        /* MD3 Filled Button */
+        .md-filled-button {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--md-sys-shape-corner-full);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: var(--md-sys-typescale-label-large-size);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
         }
 
-        .cta-button:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        .md-filled-button:hover {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15);
         }
 
-        .main-content {
-            flex: 1;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* MD3 Filled Tonal Button */
+        .md-filled-tonal-button {
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--md-sys-shape-corner-full);
+            text-decoration: none;
+            font-size: var(--md-sys-typescale-label-large-size);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            border: none;
+            cursor: pointer;
         }
 
+        .md-filled-tonal-button:hover {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero Section */
         .hero-section {
-            text-align: center;
-            margin-bottom: 5rem;
-            padding: 2rem 0;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            background: linear-gradient(135deg,
+                var(--md-sys-color-primary-container) 0%,
+                var(--md-sys-color-surface) 50%,
+                var(--md-sys-color-tertiary-container) 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 97, 164, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .hero-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--md-sys-color-tertiary-container);
+            color: var(--md-sys-color-on-tertiary-container);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--md-sys-shape-corner-small);
+            font-size: var(--md-sys-typescale-label-large-size);
+            font-weight: var(--md-sys-typescale-label-large-weight);
+            margin-bottom: var(--spacing-lg);
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            font-size: clamp(2.5rem, 5vw, var(--md-sys-typescale-display-large-size));
+            font-weight: var(--md-sys-typescale-display-large-weight);
+            line-height: 1.1;
+            color: var(--md-sys-color-on-background);
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
+            background-clip: text;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--medium-gray);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
+        .hero-description {
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-surface-variant);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            line-height: 1.6;
         }
 
-        .hero-cta {
+        .hero-actions {
             display: flex;
-            gap: 1rem;
+            gap: var(--spacing-md);
             justify-content: center;
-            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
-        .primary-button {
-            background: var(--accent-blue);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* Main Content */
+        .main-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
         }
 
-        .primary-button:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        /* MD3 Cards Section */
+        .cards-section {
+            margin-bottom: var(--spacing-3xl);
         }
 
-        .secondary-button {
-            background: transparent;
-            color: var(--primary-blue);
-            padding: 1rem 2rem;
-            border: 2px solid var(--primary-blue);
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .secondary-button:hover {
-            background: var(--primary-blue);
-            color: white;
-        }
-
-        .services-section {
-            margin-bottom: 5rem;
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark-gray);
+            font-size: var(--md-sys-typescale-headline-large-size);
+            font-weight: var(--md-sys-typescale-headline-large-weight);
+            color: var(--md-sys-color-on-background);
+            margin-bottom: var(--spacing-sm);
         }
 
-        .services-grid {
+        .section-description {
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* MD3 Card Grid */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: var(--spacing-lg);
         }
 
-        .service-card {
-            background: white;
-            border: 1px solid var(--light-gray);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        /* MD3 Elevated Card */
+        .md-card {
+            background: var(--md-sys-color-surface-1);
+            border-radius: var(--md-sys-shape-corner-large);
+            padding: var(--spacing-lg);
+            transition: all var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-emphasized);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:nth-child(1) {
-            background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+        .md-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+            transform: scaleX(0);
+            transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
         }
 
-        .service-card:nth-child(2) {
-            background: linear-gradient(135deg, #EEF2FF 0%, #FFFFFF 100%);
+        .md-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .service-card:nth-child(3) {
-            background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+        .md-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px 5px rgba(0, 0, 0, 0.15);
+            background: var(--md-sys-color-surface-2);
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent-blue);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light-blue);
-            border-radius: 12px;
+        .card-icon-container {
+            width: 56px;
+            height: 56px;
+            background: var(--md-sys-color-primary-container);
+            border-radius: var(--md-sys-shape-corner-medium);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
         }
 
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark-gray);
+        .card-icon {
+            font-size: 28px;
+            color: var(--md-sys-color-on-primary-container);
         }
 
-        .service-description {
-            color: var(--medium-gray);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+        .card-title {
+            font-size: var(--md-sys-typescale-title-large-size);
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: var(--spacing-sm);
         }
 
-        .service-features {
+        .card-description {
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .card-features {
             list-style: none;
+            padding: 0;
         }
 
-        .service-features li {
-            padding: 0.5rem 0;
-            color: var(--medium-gray);
+        .card-features li {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) 0;
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-surface-variant);
         }
 
-        .service-features li::before {
-            content: "✓";
-            color: var(--success-green);
-            font-weight: bold;
+        .card-features .material-symbols-rounded {
+            font-size: 20px;
+            color: var(--md-sys-color-primary);
         }
 
+        /* Stats Section */
         .stats-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            margin: 4rem 0;
-            text-align: center;
+            background: var(--md-sys-color-primary-container);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: var(--spacing-3xl);
+            margin: var(--spacing-3xl) 0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
+            gap: var(--spacing-xl);
             text-align: center;
         }
 
+        .stat-item {
+            padding: var(--spacing-lg);
+        }
+
         .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            font-size: var(--md-sys-typescale-display-medium-size);
+            font-weight: 500;
+            color: var(--md-sys-color-on-primary-container);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
         }
 
         .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-primary-container);
+            opacity: 0.8;
         }
 
+        /* Testimonial Section */
         .testimonial-section {
-            margin: 5rem 0;
+            padding: var(--spacing-3xl) 0;
             text-align: center;
         }
 
         .testimonial-card {
-            background: var(--light-gray);
-            border-radius: 20px;
-            padding: 3rem;
+            background: var(--md-sys-color-surface-3);
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: var(--spacing-2xl);
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: var(--md-sys-typescale-headline-medium-size);
+            color: var(--md-sys-color-primary);
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-lg);
+            opacity: 0.3;
         }
 
         .testimonial-text {
-            font-size: 1.3rem;
+            font-size: calc(var(--md-sys-typescale-body-large-size) + 2px);
             line-height: 1.8;
-            color: var(--dark-gray);
-            margin-bottom: 2rem;
+            color: var(--md-sys-color-on-surface);
+            margin: var(--spacing-xl) 0;
             font-style: italic;
         }
 
@@ -335,157 +538,371 @@ const html = `<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: var(--spacing-md);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--md-sys-shape-corner-full);
+            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-on-primary);
+            font-weight: 500;
+        }
+
+        .author-info {
+            text-align: left;
         }
 
         .author-name {
-            font-weight: 600;
-            color: var(--dark-gray);
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+            font-size: var(--md-sys-typescale-body-large-size);
         }
 
         .author-title {
-            color: var(--medium-gray);
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: var(--md-sys-typescale-label-large-size);
         }
 
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            padding: var(--spacing-3xl);
+            text-align: center;
+            margin: var(--spacing-3xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: var(--md-sys-typescale-headline-large-size);
+            color: var(--md-sys-color-on-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-description {
+            font-size: var(--md-sys-typescale-body-large-size);
+            color: var(--md-sys-color-on-primary);
+            opacity: 0.95;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cta-button {
+            background: var(--md-sys-color-on-primary);
+            color: var(--md-sys-color-primary);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--md-sys-shape-corner-full);
+            text-decoration: none;
+            font-size: var(--md-sys-typescale-label-large-size);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
         .footer {
-            background: var(--dark-gray);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
+            background: var(--md-sys-color-surface-5);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            margin-top: var(--spacing-3xl);
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             text-align: center;
         }
 
         .footer-links {
             display: flex;
-            gap: 2rem;
+            gap: var(--spacing-xl);
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: var(--spacing-lg);
         }
 
         .footer-link {
-            color: white;
+            color: var(--md-sys-color-on-surface-variant);
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            font-size: var(--md-sys-typescale-body-large-size);
+            transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
         }
 
         .footer-link:hover {
-            opacity: 1;
+            color: var(--md-sys-color-primary);
         }
 
-        @media (max-width: 768px) {
+        .footer-copyright {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: var(--md-sys-typescale-label-large-size);
+            opacity: 0.8;
+        }
+
+        /* Responsive Design - MD3 Adaptive Breakpoints */
+        /* Compact (Mobile) */
+        @media (max-width: 599px) {
+            .navigation-items {
+                display: none;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .services-grid {
+            .cards-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-cta {
-                flex-direction: column;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .nav-links {
-                display: none;
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .md-filled-button,
+            .md-filled-tonal-button {
+                justify-content: center;
+            }
+        }
+
+        /* Medium (Tablet) */
+        @media (min-width: 600px) and (max-width: 839px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Expanded (Desktop) */
+        @media (min-width: 840px) {
+            .main-content {
+                padding: var(--spacing-3xl) var(--spacing-2xl);
+            }
+        }
+
+        /* Large (Large Desktop) */
+        @media (min-width: 1240px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Motion Preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .md-card {
+                border: 2px solid var(--md-sys-color-outline);
+            }
+
+            .md-filled-button {
+                border: 2px solid transparent;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="/" class="logo">Integrity Evolution</a>
-            <nav class="nav-links">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="mailto:training@integrityevolution.com" class="cta-button">Get Started</a>
-            </nav>
-        </div>
+    <!-- MD3 Navigation Header -->
+    <header class="navigation-header" id="nav-header">
+        <nav class="navigation-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <span class="material-symbols-rounded" style="color: white;">
+                        school
+                    </span>
+                </div>
+                Integrity Evolution
+            </a>
+            <div class="navigation-items">
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#contact" class="nav-item">Contact</a>
+                <a href="mailto:training@integrityevolution.com" class="md-filled-button">
+                    <span class="material-symbols-rounded">mail</span>
+                    Get Started
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-badge">Transform Your Development Team</div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-chip">
+                <span class="material-symbols-rounded">auto_awesome</span>
+                Transform Your Development Team
+            </div>
             <h1 class="hero-title">Corporate AI Training for Modern Development</h1>
-            <p class="hero-subtitle">
-                Upskill your team with customized AI development training tailored to your tech stack and goals. All 50 states (or online). Up to 150 people. Well-rounded curriculum with tons of hands-on results.
+            <p class="hero-description">
+                Upskill your team with customized AI development training tailored to your tech stack and goals.
+                All 50 states (or online). Up to 150 people. Well-rounded curriculum with tons of hands-on results.
             </p>
-            <div class="hero-cta">
-                <a href="mailto:training@integrityevolution.com" class="primary-button">
-                    <span class="material-symbols-outlined">rocket_launch</span>
+            <div class="hero-actions">
+                <a href="mailto:training@integrityevolution.com" class="md-filled-button">
+                    <span class="material-symbols-rounded">rocket_launch</span>
                     Schedule Training
                 </a>
-                <a href="#services" class="secondary-button">View Programs</a>
+                <a href="#services" class="md-filled-tonal-button">
+                    <span class="material-symbols-rounded">explore</span>
+                    Explore Programs
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services-section" id="services">
-            <h2 class="section-title">Training Programs</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span class="material-symbols-outlined">school</span>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Services Section -->
+        <section class="cards-section" id="services">
+            <div class="section-header">
+                <h2 class="section-title">Training Programs</h2>
+                <p class="section-description">Comprehensive AI training tailored to your team's needs</p>
+            </div>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <article class="md-card">
+                    <div class="card-icon-container">
+                        <span class="material-symbols-rounded card-icon">school</span>
                     </div>
-                    <h3 class="service-title">AI Coding Fundamentals</h3>
-                    <p class="service-description">
+                    <h3 class="card-title">AI Coding Fundamentals</h3>
+                    <p class="card-description">
                         Master the basics of AI-assisted development with hands-on training on prompt engineering and tool selection.
                     </p>
-                    <ul class="service-features">
-                        <li>2-day intensive workshop</li>
-                        <li>Multi-platform AI tools (Claude, ChatGPT, Gemini, Copilot)</li>
-                        <li>Prompt engineering mastery</li>
-                        <li>Code review workflows</li>
-                        <li>Security & compliance guidelines</li>
+                    <ul class="card-features">
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            2-day intensive workshop
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Multi-platform AI tools (Claude, ChatGPT, Gemini, Copilot)
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Prompt engineering mastery
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Code review workflows
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Security & compliance guidelines
+                        </li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span class="material-symbols-outlined">code</span>
+                <!-- Card 2 -->
+                <article class="md-card">
+                    <div class="card-icon-container" style="background: var(--md-sys-color-secondary-container);">
+                        <span class="material-symbols-rounded card-icon" style="color: var(--md-sys-color-on-secondary-container);">code</span>
                     </div>
-                    <h3 class="service-title">Advanced AI Development</h3>
-                    <p class="service-description">
+                    <h3 class="card-title">Advanced AI Development</h3>
+                    <p class="card-description">
                         Deep dive into advanced techniques for AI-powered development, including custom workflows and automation.
                     </p>
-                    <ul class="service-features">
-                        <li>3-day comprehensive program</li>
-                        <li>AI-powered IDEs (Cursor, Windsurf, Copilot)</li>
-                        <li>Custom AI agent development</li>
-                        <li>CI/CD integration</li>
-                        <li>Team collaboration strategies</li>
+                    <ul class="card-features">
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            3-day comprehensive program
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            AI-powered IDEs (Cursor, Windsurf, Copilot)
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Custom AI agent development
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            CI/CD integration
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Team collaboration strategies
+                        </li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span class="material-symbols-outlined">groups</span>
+                <!-- Card 3 -->
+                <article class="md-card">
+                    <div class="card-icon-container" style="background: var(--md-sys-color-tertiary-container);">
+                        <span class="material-symbols-rounded card-icon" style="color: var(--md-sys-color-on-tertiary-container);">groups</span>
                     </div>
-                    <h3 class="service-title">Team Transformation</h3>
-                    <p class="service-description">
+                    <h3 class="card-title">Team Transformation</h3>
+                    <p class="card-description">
                         Complete team transformation program with ongoing support and customized workflows for your stack.
                     </p>
-                    <ul class="service-features">
-                        <li>Custom curriculum design</li>
-                        <li>Hands-on workshops</li>
-                        <li>Code reviews & mentoring</li>
-                        <li>Best practices implementation</li>
-                        <li>ROI measurement framework</li>
+                    <ul class="card-features">
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Custom curriculum design
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Hands-on workshops
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Code reviews & mentoring
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Best practices implementation
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">check_circle</span>
+                            ROI measurement framework
+                        </li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
+        <!-- Stats Section -->
         <section class="stats-section">
             <div class="stats-grid">
                 <div class="stat-item">
@@ -507,14 +924,19 @@ const html = `<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- Testimonial Section -->
         <section class="testimonial-section">
-            <h2 class="section-title">What Teams Say</h2>
+            <div class="section-header">
+                <h2 class="section-title">What Teams Say</h2>
+            </div>
             <div class="testimonial-card">
+                <span class="material-symbols-rounded testimonial-quote" style="font-size: 64px;">format_quote</span>
                 <p class="testimonial-text">
-                    "The AI coding training transformed our development process. Our team now ships features 3x faster with higher quality code. The ROI was immediate and measurable."
+                    The AI coding training transformed our development process. Our team now ships features 3x faster with higher quality code. The ROI was immediate and measurable.
                 </p>
                 <div class="testimonial-author">
-                    <div>
+                    <div class="author-avatar">SC</div>
+                    <div class="author-info">
                         <div class="author-name">Sarah Chen</div>
                         <div class="author-title">VP Engineering, TechCorp</div>
                     </div>
@@ -522,27 +944,34 @@ const html = `<!DOCTYPE html>
             </div>
         </section>
 
-        <section id="about" style="margin: 5rem 0;">
-            <h2 class="section-title">Why Integrity Evolution?</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--medium-gray); line-height: 1.8;">
-                With 20+ years of enterprise software development experience and deep expertise in AI-assisted development,
-                we bridge the gap between traditional engineering practices and modern AI tools. Our training is practical,
-                hands-on, and immediately applicable to your daily work.
-            </p>
+        <!-- About Section -->
+        <section id="about" class="cards-section">
+            <div class="section-header">
+                <h2 class="section-title">Why Integrity Evolution?</h2>
+                <p class="section-description" style="max-width: 800px; margin: 0 auto;">
+                    With 20+ years of enterprise software development experience and deep expertise in AI-assisted development,
+                    we bridge the gap between traditional engineering practices and modern AI tools. Our training is practical,
+                    hands-on, and immediately applicable to your daily work.
+                </p>
+            </div>
         </section>
 
-        <section id="contact" style="text-align: center; margin: 5rem 0;">
-            <h2 class="section-title">Ready to Transform Your Team?</h2>
-            <p style="font-size: 1.2rem; color: var(--medium-gray); margin-bottom: 2rem;">
-                Let's discuss how AI training can accelerate your development velocity.
-            </p>
-            <a href="mailto:training@integrityevolution.com" class="primary-button">
-                <span class="material-symbols-outlined">mail</span>
-                Contact Us Today
-            </a>
+        <!-- CTA Section -->
+        <section id="contact" class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Team?</h2>
+                <p class="cta-description">
+                    Let's discuss how AI training can accelerate your development velocity.
+                </p>
+                <a href="mailto:training@integrityevolution.com" class="cta-button">
+                    <span class="material-symbols-rounded">send</span>
+                    Contact Us Today
+                </a>
+            </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -550,9 +979,58 @@ const html = `<!DOCTYPE html>
                 <a href="#" class="footer-link">LinkedIn</a>
                 <a href="#" class="footer-link">Twitter</a>
             </div>
-            <p>&copy; 2025 Integrity Evolution. All rights reserved.</p>
+            <p class="footer-copyright">&copy; 2025 Integrity Evolution. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('nav-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.md-card, .stats-section, .testimonial-card, .cta-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>`;
 
