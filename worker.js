@@ -407,7 +407,7 @@ const html = `<!DOCTYPE html>
             <div class="hero-badge">Transform Your Development Team</div>
             <h1 class="hero-title">Corporate AI Training for Modern Development</h1>
             <p class="hero-subtitle">
-                Empower your engineering team with cutting-edge AI tools. Learn to leverage Claude, ChatGPT, Cursor, and other AI assistants to 10x your development velocity.
+                Empower your engineering team with cutting-edge AI tools. Master Claude, ChatGPT, Gemini, Copilot, and emerging AI platforms to 10x your development velocity.
             </p>
             <div class="hero-cta">
                 <a href="mailto:training@integrityevolution.com" class="primary-button">
@@ -431,7 +431,7 @@ const html = `<!DOCTYPE html>
                     </p>
                     <ul class="service-features">
                         <li>2-day intensive workshop</li>
-                        <li>Claude & ChatGPT best practices</li>
+                        <li>Multi-platform AI tools (Claude, ChatGPT, Gemini, Copilot)</li>
                         <li>Prompt engineering mastery</li>
                         <li>Code review workflows</li>
                         <li>Security & compliance guidelines</li>
@@ -448,7 +448,7 @@ const html = `<!DOCTYPE html>
                     </p>
                     <ul class="service-features">
                         <li>3-day comprehensive program</li>
-                        <li>Cursor IDE mastery</li>
+                        <li>AI-powered IDEs (Cursor, Windsurf, Copilot)</li>
                         <li>Custom AI agent development</li>
                         <li>CI/CD integration</li>
                         <li>Team collaboration strategies</li>
