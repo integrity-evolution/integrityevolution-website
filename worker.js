@@ -417,7 +417,7 @@ const html = `<!DOCTYPE html>
     <main class="main-content">
         <section class="hero-section">
             <div class="hero-badge">Transform Your Development Team</div>
-            <h1 class="hero-title">Corporate AI Training</h1>
+            <h1 class="hero-title">Corporate AI Training for Modern Development</h1>
             <p class="hero-subtitle">
                 Upskill your team with customized AI development training tailored to your tech stack and goals. All 50 states (or online). Up to 150 people. Well-rounded curriculum with tons of hands-on results.
             </p>
